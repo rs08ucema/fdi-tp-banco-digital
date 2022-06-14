@@ -4,14 +4,16 @@ from flask import Flask
 from flask import request
 from flask import jsonify
 from flask import make_response
-from models.client import Client, ClientAddress, store_client_file, client_id_generator
+from models.client import Client, ClientAddress, client_id_generator
 from db.client_loader import load_clients
+from db.client_store import store_client_file
 
 app = Flask(__name__)
 clients: list = load_clients()
 accounts: list = []
 
 
+# Internal use
 @app.route("/api/digital-bank/clients/", methods=['GET'])
 def get_all_clients():
     return jsonify([cli.serialize() for cli in clients])
@@ -21,7 +23,7 @@ def get_all_clients():
 def get_client(client_id):
     for client in clients:
         if client.id == client_id:
-            return json.dumps(client.serialize())
+            return jsonify(client.serialize())
 
     return jsonify({})
 
@@ -57,7 +59,7 @@ def create_client():
     except KeyError as key_err:
         missing_param = (key_err.__str__())
         return jsonify(
-            error_code=400,
+            error_code="ERROR_BAD",
             error_description="Bad request",
             error_body=missing_param
         ), 400
@@ -69,8 +71,12 @@ def create_client():
 def creat_test_data():
     client = request.json
     client['id'] = client_id_generator()
+    client['role'] = request.args['role']
     store_client_file(client)
 
-    response = make_response(client, 201)
+    print(request.args['role'])
 
-    return response
+    # response = make_response(client, 201)
+    # return response
+
+    return client, 200

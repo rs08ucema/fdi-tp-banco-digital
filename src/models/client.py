@@ -1,11 +1,4 @@
-import json
 import random
-
-
-def store_client_file(client):
-    with open('src/db/test.json', 'w') as store_file:
-        json.dump(client, store_file)
-        print(f"client stored")
 
 
 def client_id_generator():
@@ -26,13 +19,15 @@ class Client:
         self.phone_number = phone_number
         self.email = email
         self.client_status = client_status
-        self.address = client_address
+        self.address: ClientAddress = client_address
 
     def serialize(self):
         return {
+            'id': self.id,
             'date_create': self.date_created,
             'first_name': self.first_name,
             'last_name': self.last_name,
+            'date_of_birth': self.date_of_birth,
             # TODO add the rest of attributes
 
             'address': self.address.serialize()
