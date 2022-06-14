@@ -1,0 +1,150 @@
+
+## Response - Detalles de un cliente
+
+method: "GET"
+path: "/api/digital-bank/clients/<id>"
+
+{
+    "id": 2273332876,
+    "first_name": "Laura",
+    "last_name": "Moon",
+    "document": "81237334",
+    "geneder": "F",
+    "cuil": "21-81237334-1",
+    "date_of_birth": "18/04/1971",
+    "phone_number": "+54 91239123",
+    "email": "lmoon@mail.com",
+    "saving_account": {
+    	"id": 7322383,
+    	"category": "Gold",
+    	"account_number": "373384/23",
+    	"CBU": "627333400003483403",
+    	"transactions": [
+    		12.23, -53.90, 73.11 
+    	],
+    	"amount": 234.85
+    }
+
+}
+
+
+## Responses - Detalles de un cliente
+
+method: "GET"
+path: "/api/digital-bank/clients/<id>"
+codeStatus: 200
+
+{
+    "id": 2273332876,
+    "first_name": "Laura",
+    "last_name": "Moon",
+    "document": "81237334",
+    "geneder": "F",
+    "cuil": "21-81237334-1",
+    "date_of_birth": "18/04/1971",
+    "phone_number": "+54 91239123",
+    "email": "lmoon@mail.com",
+    "account_id": 7322383
+}
+
+
+## Responses - Detalles de una cuenta de un cliente
+
+method: "GET"
+params: "client_id", "account_id"
+path: "/api/digital-bank/clients/<client_id>/accounts/<account_id>"
+codeStatus: 200
+
+{
+	"id": 7322383,
+	"account_type": "saving_account",
+	"category": "Gold",
+	"account_number": "373384/23",
+	"CBU": "627333400003483403",
+	"transactions": [
+		12.23, -53.90, 73.11 
+	],
+	"amount": 234.85
+}
+
+
+## Response - Detalles de todos los clientes
+
+method: "GET"
+path: "/api/digital-bank/clients"
+codeStatus: 200
+
+[
+	{
+		"id": 2273332876,
+		"first_name": "Laura",
+		"last_name": "Moon",
+		"document": "81237334",
+		"geneder": "F",
+		"cuil": "21-81237334-1",
+		"date_of_birth": "18/04/1971",
+		"phone_number": "+54 91239123",
+		"email": "lmoon@mail.com",
+		"account_id": 7322383
+	}
+]
+
+
+## Request - Actualizacion detalles de un cliente
+
+method: "PUT"
+params: "id"
+path: "/api/digital-bank/clients/<id>"
+codeStatus: 200
+
+{
+    "first_name": "Laura",
+    "last_name": "Moon",
+    "date_of_birth": "18/04/1971",
+    "phone_number": "+54 91239123",
+    "email": "lmoon@mail.com"
+}
+
+
+## Request - Actualizacion saldo de la cuenta de un cliente
+
+method: "PUT"
+params: "id"
+path: "/api/digital-bank/clients/<client_id>/accounts/<account_id>"
+codeStatus: 200
+
+{
+	"trx_id": "98234982347342",
+	"trx_amount": 17.34,
+	"detail": "Compra en Carrefour"
+}
+
+
+## Request - Creacion de un cliente
+
+method: "POST"
+params: "id"
+path: "/api/digital-bank/clients/<id>"
+codeStatus: 201
+
+{
+    "id": 2273332876,
+    "first_name": "Laura",
+    "last_name": "Moon",
+    "document": "81237334",
+    "geneder": "F",
+    "cuil": "21-81237334-1",
+    "date_of_birth": "18/04/1971",
+    "phone_number": "+54 91239123",
+    "email": "lmoon@mail.com"
+}
+
+
+## Request - Eliminar un clientes
+
+method: "DELETE"
+params: "id"
+path: "/api/digital-bank/clients/<id>"
+codeStatus: 204 
+
+	No Body request
