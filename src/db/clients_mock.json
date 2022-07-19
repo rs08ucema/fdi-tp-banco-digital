@@ -1,0 +1,62 @@
+[
+  {
+    "id": "0000111",
+    "date_created": "21/07/2013",
+    "first_name": "Laura",
+    "last_name": "Moon",
+    "date_of_birth": "18/04/1971",
+    "document": "81237334",
+    "gender": "F",
+    "phone_number": "+54 91239123",
+    "email": "lmoon@mail.com",
+    "client_status": "ACTIVE",
+    "client_address": {
+      "street": "Av. Incas",
+      "street_number": "123",
+      "city": "CABA",
+      "state": "Buenos Aires",
+      "post_code": "1923",
+      "country": "Argentina"
+    }
+  },
+  {
+    "id": "0000222",
+    "date_created": "11/10/2020",
+    "first_name": "Monica",
+    "last_name": "Laudon",
+    "date_of_birth": "18/04/1980",
+    "document": "422337123",
+    "gender": "F",
+    "phone_number": "+54 91239123",
+    "email": "mlaudon@mail.com",
+    "client_status": "ACTIVE",
+    "client_address": {
+      "street": "Av. Libertador",
+      "street_number": "932",
+      "city": "CABA",
+      "state": "Buenos Aires",
+      "post_code": "1882",
+      "country": "Argentina"
+    }
+  },
+  {
+    "id": "0000333",
+    "date_created": "19/01/2019",
+    "first_name": "Richard",
+    "last_name": "Bumel",
+    "date_of_birth": "18/04/2000",
+    "document": "8788312",
+    "gender": "M",
+    "phone_number": "+54 91239184",
+    "email": "ric@mail.com",
+    "client_status": "ACTIVE",
+    "client_address": {
+      "street": "Olazabal",
+      "street_number": "1332",
+      "city": "CABA",
+      "state": "Buenos Aires",
+      "post_code": "2120",
+      "country": "Argentina"
+    }
+  }
+]
